@@ -10,26 +10,53 @@ import { useState } from 'react';
 
 
 export const Projects = () => {
-
   const [total, setTotal] = useState("");
 
-  const [bmiTotal, setBMITotal] = useState("");
+  // state (BMI)
+  const [weight, setWeight] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [bmi, setBmi] = useState('');
+  const [message, setMessage] = useState('');
+  
+  // show image based on bmi calculation
+  let imgSrc = '';
 
-  const projects = [
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    
-  ];
+  if (bmi < 1) {
+    imgSrc = null;
+  } else {
+    if (bmi < 25) {
+      imgSrc = null;
+    } else if (bmi >= 25 && bmi <30) {
+      imgSrc = null;
+    }
+  }
 
+  let calcBmi = (event) => {
+    event.preventDefault();
 
+    if (weight === 0 || height === 0) {
+      setMessage('Please enter your weight and height');
+      
+    } else {
+      let bmi = (weight / (height * height));
+      setBmi(bmi.toFixed(2));
+
+      // Logic for message
+      if (bmi < 25) {
+        setMessage('You are underweight');
+      } else if (bmi >= 25 && bmi < 30) {
+        setMessage('You are at a healthy weight');
+      } else {
+        setMessage('You are overweight');
+      }
+    }
+  }
+
+  let reload = () => {
+    window.location.reload();
+  }
+
+  
   const basicCalc = () => {
     var firstNumber = document.getElementById("firstNumber").value;
     var secondNumber = document.getElementById("secondNumber").value;
@@ -38,13 +65,7 @@ export const Projects = () => {
     
   }
 
-  const bmiCalc = () => {
-    var firstNumber = document.getElementById("firstNumber").value;
-    var secondNumber = document.getElementById("secondNumber").value;
-    var bmiTotal = parseInt(secondNumber) / (parseInt(firstNumber * firstNumber));
-    setBMITotal(bmiTotal.toString());
-    
-  }
+  
 
   return (
     <section className="project" id="project">
@@ -65,31 +86,46 @@ export const Projects = () => {
                       <Nav.Link eventKey="second">TDEE</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="third">Ideal Weight</Nav.Link>
+                      <Nav.Link eventKey="third">BMR</Nav.Link>
                     </Nav.Item>
                   </Nav>
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                    
+                    
                     {/* BMI calc */}
                     <Tab.Pane eventKey="first">
-                    <div className="basicCalc">
-                        <div className="display">
-                            <h1>BMI Calculator</h1>
-                            <span>Height: </span>
-                            <input type="text" id="firstNumber"></input>
-                            <br/>
-                            <span>Weight: </span>
-                            <input type="text" id="secondNumber"></input>
-                            <br/>
-                            <div className="totalDisplay">
-                            { bmiTotal || "0" } 
-                            </div>
-                            
-                            <br/>
-                            <div className="calcButton">
-                              <button onClick={bmiCalc}>Calculate</button>
-                            </div>
-                        </div>
-                     </div>
+                    <div className="bmi-container">
+        <h2 className='bmiCalcCenter'>BMI Calculator</h2>
+        <form onSubmit={calcBmi}>
+          <div>
+            <label>
+              Weight (kgs)</label>
+            <input value={weight} onChange={(event) => setWeight(event.target.value)} />
+          </div>
+          <div>
+            <label>
+              Height (meters)</label>
+            <input value={height} onChange={(event) => setHeight(event.target.value)} />
+          </div>
+          <div>
+            <button className='btn' type='submit'>Submit</button>
+            <button className='btn btn-outline' onClick={reload} type='submit'>Reload</button>
+          </div>
+        </form>
+
+        <div className='center'>
+          <h3>Your BMI is: {bmi}</h3>
+          <p>{message}</p>
+        </div>
+
+        <div className='img-container'>
+          <img src={imgSrc} alt=''></img>
+        </div>
+      </div>
+
+
+
+
                     </Tab.Pane>
                     {/* TDEE Calc */}
                     <Tab.Pane eventKey="second">
