@@ -13,7 +13,7 @@ export const Banner = () => {
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(10 - Math.random() * 500);
     const [index, setIndex] = useState(1);
-    const toRotate = [ "BMI Calculator", "TDEE Calculator", "Ideal Weight Calculator" ];
+    const toRotate = [ "BMI Calculator", "TDEE Calculator", "BMR Calculator" ];
     const period = 2000;
   
     useEffect(() => {
@@ -58,7 +58,7 @@ export const Banner = () => {
                 {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__tada" : ""}>
                   <span className="tagline">Weightiply  <Calculator size={25} /></span>
-                  <h1>{`Totally Unique: `} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "BMI Calculator", "TDEE Calculator", "Ideal Weight Calculator" ]'><span className="wrap">{text}</span></span></h1>
+                  <h1>{`Totally Unique: `} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "BMI Calculator", "TDEE Calculator", "BMR Calculator" ]'><span className="wrap">{text}</span></span></h1>
                     <p>Simple to use, weight-related, calculator!</p>
                     <button onClick={() => console.log('connect')}> Calculate all your weight-related essentials! <ClipboardHeart size={25} /></button>
                 </div>}
