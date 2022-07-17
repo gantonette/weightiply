@@ -17,6 +17,10 @@ export const Projects = () => {
   const [height, setHeight] = useState(0);
   const [bmi, setBmi] = useState('');
   const [message, setMessage] = useState('');
+
+  // state (BMR)
+  const [bmr, setBmr] = useState(0);
+  const [age, setAge] = useState(0);
   
   // show image based on bmi calculation
   let imgSrc = '';
@@ -49,6 +53,20 @@ export const Projects = () => {
       } else {
         setMessage('You are overweight');
       }
+    }
+  }
+
+  // bmr calculation
+  let calcBmr = (event) => {
+    event.preventDefault();
+
+    if (weight === 0 || height === 0) {
+      setMessage('Please enter your weight and height');
+      
+    } else {
+      let bmr = 655.1 + (9.563 * weight) + (1.85 * height) - (4.676 * age);
+      setBmr(bmr.toFixed(2));
+
     }
   }
 
@@ -151,26 +169,36 @@ export const Projects = () => {
                      </div>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
-                      <p>Lorem ipsum dolor sit amet dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                      <div className="basicCalc">
-                        <div className="display">
-                            <h1>Addition of two numbers</h1>
-                            <span>Enter First Number: </span>
-                            <input type="text" id="firstNumber"></input>
-                            <br/>
-                            <span>Enter Second Number: </span>
-                            <input type="text" id="secondNumber"></input>
-                            <br/>
-                            <div className="totalDisplay">
-                            { total || "0" } 
-                            </div>
-                            
-                            <br/>
-                            <div className="calcButton">
-                              <button onClick={basicCalc}>Calculate</button>
-                            </div>
-                        </div>
-                     </div>
+                      {/* bmr-calculator */}
+      <div className="bmr-container">
+        <h2 className='bmrCalcCenter'>BMR Calculator</h2>
+        <form onSubmit={calcBmr}>
+          <div>
+            <label>
+              Weight (kgs)</label>
+            <input value={weight} onChange={(event) => setWeight(event.target.value)} />
+          </div>
+          <div>
+            <label>
+              Height (meters)</label>
+            <input value={height} onChange={(event) => setHeight(event.target.value)} />
+          </div>
+          <div>
+            <label>
+              Age (years)</label>
+            <input value={age} onChange={(event) => setAge(event.target.value)} />
+          </div>
+          <div>
+            <button className='btn' type='submit'>Submit</button>
+            <button className='btn btn-outline' onClick={reload} type='submit'>Reload</button>
+          </div>
+        </form>
+
+        <div className='center'>
+          <h3>Your BMR is: {bmr}</h3>
+          <p>{message}</p>
+        </div>
+      </div>
                     </Tab.Pane>
                   </Tab.Content>
                 </Tab.Container>
