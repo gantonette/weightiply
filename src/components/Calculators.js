@@ -2,6 +2,11 @@ import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import { useState } from 'react';
+import skinny from '../assets/img/skinny.png';
+import normal from '../assets/img/normal.png';
+import bigger from '../assets/img/bigger.png';
+
+
 
 export const Calculators = () => {
     const [total, setTotal] = useState("");
@@ -19,13 +24,13 @@ export const Calculators = () => {
   // show image based on bmi calculation
   let imgSrc = '';
 
-  if (bmi < 1) {
-    imgSrc = null;
+  if (bmi < 18.5) {
+    imgSrc = skinny;
   } else {
-    if (bmi < 25) {
-      imgSrc = null;
-    } else if (bmi >= 25 && bmi <30) {
-      imgSrc = null;
+    if (bmi >= 18.5 && bmi <= 24.9) {
+      imgSrc = normal;
+    } else{
+      imgSrc = bigger;
     }
   }
 
@@ -143,6 +148,9 @@ export const Calculators = () => {
             <div className="right-panel box">
                 <h4> BMI = {bmi}kg/m2 </h4>
                 <h3> {message} </h3>
+                <div className="bmiImg">
+                    <img src={imgSrc} alt="bmi" />
+                </div>
 
             </div>
        </div>
@@ -222,8 +230,6 @@ export const Calculators = () => {
        </div>
     </div>
       </Tab.Pane>
-
-
 
                   </Tab.Content>
                 </Tab.Container>

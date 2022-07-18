@@ -5,7 +5,7 @@ import { Banner } from "./components/Banner";
 import { Calculators } from "./components/Calculators";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-import { Calculator } from 'react-bootstrap-icons';
+
 
 
 function App() {
