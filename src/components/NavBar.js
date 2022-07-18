@@ -37,12 +37,13 @@ export const NavBar = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
                 <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-                <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>Calculator</Nav.Link>
                 {/* calculator types */}
                 <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>BMI</Nav.Link>
-                <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>TDEE</Nav.Link>
+                <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>Calculator</Nav.Link>
                 <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>BMR</Nav.Link>
 
+                <Nav.Link href="#contact" className={activeLink === 'contact' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('contact')}>Contact</Nav.Link>
+                <button className="vvd" onClick={() => console.log('connect')}><span>login/signup</span></button>
 
               </Nav>
             </Navbar.Collapse>

@@ -6,7 +6,19 @@ import { Calculators } from "./components/Calculators";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import 'firebase/firestore';
 
+// import { useAuthState } from 'react-firebase-hooks/auth';
+// import { useCollectionData } from 'react-firebase-hooks/firestore';
+
+// firebase.initializeApp({
+//   // your config
+// })
+
+// const auth = firebase.auth();
+// const firestore = firebase.firestore();
 
 function App() {
   return (

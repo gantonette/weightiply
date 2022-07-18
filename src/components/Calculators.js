@@ -5,11 +5,21 @@ import { useState } from 'react';
 import skinny from '../assets/img/skinny.png';
 import normal from '../assets/img/normal.png';
 import bigger from '../assets/img/bigger.png';
+import bmiWheel from '../assets/img/bmiWheel.png';
+import sushi from '../assets/img/sushi.png';
+import toast from '../assets/img/toast.png';
+import sandwhich from '../assets/img/sandwhich.png';
 
 
 
 export const Calculators = () => {
     const [total, setTotal] = useState("");
+
+    const [calc, setCalc] = useState("");
+    const [result, setResult] = useState("");
+    // const [total, setTotal] = useState("");
+
+  const ops = ["+", "-", "*", "/", "."];
 
   // state (BMI)
   const [weight, setWeight] = useState(0);
@@ -20,6 +30,7 @@ export const Calculators = () => {
   // state (BMR)
   const [bmr, setBmr] = useState(0);
   const [age, setAge] = useState(0);
+
   
   // show image based on bmi calculation
   let imgSrc = '';
@@ -55,6 +66,18 @@ export const Calculators = () => {
     }
   }
 
+  let bmrImg = '';
+  if (bmr < 1000) {
+    bmrImg = sushi;
+  } else {
+    if (bmr >= 1000 && bmr <= 1200) {
+      bmrImg = toast;
+    } else{
+      bmrImg = sandwhich;
+    }
+  }
+
+
   // bmr calculation
   let calcBmr = (event) => {
     event.preventDefault();
@@ -73,17 +96,56 @@ export const Calculators = () => {
     window.location.reload();
   }
 
-  
-  const basicCalc = () => {
-    var firstNumber = document.getElementById("firstNumber").value;
-    var secondNumber = document.getElementById("secondNumber").value;
-    var total = parseInt(firstNumber) + parseInt(secondNumber);
-    setTotal(total.toString());
-    
+
+  const updateCalc = value => {
+    if (
+      ops.includes(value) && calc === '' ||
+      ops.includes(value) && ops.includes(calc.slice(-1)
+      )
+    ) {
+      return;
+    }
+
+    setCalc(calc + value);
+
+    if (!ops.includes(value)) {
+      setResult(eval(calc + value).toString());
+    }
+  }
+
+
+  const createDigits = () => {
+    const digits = [];
+
+    for (let i = 1; i < 10; i++) {
+      digits.push(
+        <button
+          onClick={() => updateCalc(i.toString())}
+          key={i}>
+          {i}
+        </button>
+      )
+    }
+
+    return digits;
+  }
+
+  const calculate = () => {
+    setCalc(eval(calc).toString());
+  }
+
+  const deleteLast = () => {
+    if(calc == '') {
+      return;
+    }
+
+    const value = calc.slice(0, -1);
+
+    setCalc(value);
   }
 
     return (
-    <section className="calculator" id="calculator">
+    <section className="calculator" id="calculators">
       <Container>
         <Row>
           <Col size={12}>
@@ -98,7 +160,7 @@ export const Calculators = () => {
                       <Nav.Link eventKey="first">BMI</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="second">TDEE</Nav.Link>
+                      <Nav.Link eventKey="second">Calculator</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                       <Nav.Link eventKey="third">BMR</Nav.Link>
@@ -108,7 +170,7 @@ export const Calculators = () => {
                         
         {/* BMI calc */}
         <Tab.Pane eventKey="first">
-      <div className="content-container">
+      <div className="content-container" id="bmiCalc">
         <div className="row">
             <div className="left-panel box">
                 <div className="bmi-container">
@@ -138,11 +200,11 @@ export const Calculators = () => {
             <div className="middle-panel box">
                 <h2> Body Mass Index (BMI) </h2>
                 <h4>
-                The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status 
-                while taking age into consideration. Use the "Metric Units" tab for the International System of Units or the 
-                "Other Units" tab to convert units into either US or metric units.
+                The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status. 
+                It is a measure of body fat based on height and weight and 
+                is categorised into three categories: underweight, normal, and overweight.
                 </h4>
-                
+                <img src={bmiWheel} alt="bmi" />
             </div>
             
             <div className="right-panel box">
@@ -155,30 +217,32 @@ export const Calculators = () => {
             </div>
        </div>
     </div>
-      </Tab.Pane>
 
-        {/* TDEE Calc */}       
+        {/* Basic Calc */}   
+      </Tab.Pane>    
         <Tab.Pane eventKey="second">
-            <p>Lorem ipsum dolor sit amet, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-            <div className="basicCalc">
-            <div className="display">
-                <h1>Addition of two numbers</h1>
-                <span>Enter First Number: </span>
-                <input type="text" id="firstNumber"></input>
-                <br/>
-                <span>Enter Second Number: </span>
-                <input type="text" id="secondNumber"></input>
-                <br/>
-                <div className="totalDisplay">
-                { total || "0" } 
-                </div>
-                
-                <br/>
-                <div className="calcButton">
-                    <button onClick={basicCalc}>Calculate</button>
-                </div>
-            </div>
-            </div>
+      <div className="basicCalc"> 
+        <div className="display">
+          { result ? <span> ({result}) </span> : '' }
+          { calc || "0" } 
+        </div>
+
+        <div className="operators">
+          <button onClick={() => updateCalc('/')}>/</button>
+          <button onClick={() => updateCalc('*')}>*</button>
+          <button onClick={() => updateCalc('+')}>+</button>
+          <button onClick={() => updateCalc('-')}>-</button>
+
+          <button onClick={deleteLast}>DEL</button>
+        </div>
+        
+        <div className="digits">
+          { createDigits() }
+          <button onClick={() => updateCalc('0')}>0</button>
+          <button onClick={() => updateCalc('.')}>.</button>
+          <button onClick={calculate}>=</button>
+        </div>
+      </div>
         </Tab.Pane>
 
         {/* BMR calc */}
@@ -226,6 +290,7 @@ export const Calculators = () => {
             <div className="right-panel box">
                 <h5> With a BMR of {bmr}, you will require {bmr} calories just for your body to survive. 
                 Consuming less than or equal to {bmr} calories will ensure weight loss.  </h5>
+                <img src={bmrImg} alt="bmrImg" />
             </div>
        </div>
     </div>
