@@ -3,9 +3,8 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import { useState } from 'react';
 
-
-export const Projects = () => {
-  const [total, setTotal] = useState("");
+export const Calculators = () => {
+    const [total, setTotal] = useState("");
 
   // state (BMI)
   const [weight, setWeight] = useState(0);
@@ -78,9 +77,7 @@ export const Projects = () => {
     
   }
 
-  
-
-  return (
+    return (
     <section className="calculator" id="calculator">
       <Container>
         <Row>
@@ -88,8 +85,7 @@ export const Projects = () => {
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-          
-          <h2>Calculators</h2>
+                <h2>Calculators</h2>
                 <p>Select the calculator type and simply input your details then press calculate!</p>
                 <Tab.Container id="calculator-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
@@ -238,4 +234,5 @@ export const Projects = () => {
       </Container>
     </section>
   )
+
 }

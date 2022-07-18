@@ -15,6 +15,144 @@
 	font-weight: 400;
 }
 
+/************ CALCULATOR CSS (BMR) ************/
+.calculator .content-container .left-panel {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.calculator .content-container .bmr-container {
+  padding-top: 50px;
+}
+
+.calculator .content-container .middle-panel{
+  padding-top: 50px;
+}
+
+.calculator .content-container .right-panel{
+  padding-top: 50px;
+}
+
+.calculator .content-container .left-panel {
+  display: inline-block;
+  background-color: rgb(236, 224, 255);
+  width: 40%;
+  margin-left: 5%;
+}
+
+.calculator .content-container .left-panel .bmr-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #e3b3da;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 2px 64px rgba(62, 27, 88, 0.1);
+}
+
+.calculator .content-container .left-panel .bmr-container input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 8px 4px;
+  border-radius: 16px;
+}
+
+.calculator .content-container .left-panel .bmr-container .btn {
+  display: block;
+  width: 100%;
+  border: 2px solid rgb(122, 106, 169);
+  margin: 8px 0;
+  color: #51337c;
+  background-color: #f3dcff;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.calculator .content-container .left-panel .bmr-container .btn:hover {
+  background-color: #f9f7b2;
+}
+
+.calculator .content-container .left-panel .bmr-container .btn-outline {
+  background-color: #A7C7E7;
+  color: #2e5174;
+}
+
+.calculator .content-container .middle-panel {
+  display: inline-block;
+  background-color: lightblue;
+  width: 30%;
+}
+
+.calculator .content-container .right-panel {
+  display: inline-block;
+  background: linear-gradient(90.21deg, #fff9e1ac -5.91%, #fda1dabb 111.58%);
+  width: 20%
+}
+
+
+/************ CALCULATOR CSS (BMI) ************/
+.calculator .content-container .left-panel .bmi-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fff6e4;
+  color: rgb(97, 75, 142);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 2px 64px rgba(102, 60, 133, 0.1);
+}
+
+.calculator .content-container .left-panel .bmi-container input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 8px 4px;
+  border-radius: 16px;
+}
+
+.calculator .content-container .left-panel .bmi-container .btn {
+  display: block;
+  width: 100%;
+  border: 2px solid rgb(122, 106, 169);
+  margin: 8px 0;
+  color: #51337c;
+  background-color: #f3dcff;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.calculator .content-container .left-panel .bmi-container .btn:hover {
+  background-color: #f9f7b2;
+}
+
+.calculator .content-container .left-panel .bmi-container .btn-outline {
+  background-color: #A7C7E7;
+  color: #2e5174;
+}
+
+.calculator .content-container .middle-panel {
+  display: inline-block;
+  background-color: lightblue;
+  width: 30%;
+}
+
+.calculator .content-container .right-panel .right-panel {
+  display: inline-block;
+  background: linear-gradient(90.21deg, #ffd5f0 -5.91%, #fff8e6 111.58%);
+  width: 20%
+}
+
+
 /************ Default Css ************/
 * {
   margin: 0;
@@ -358,17 +496,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 /************ Projects Css ************/
-.project {
+.calculator {
   padding: 80px 0;
   position: relative;
   background: linear-gradient(90.21deg, #9eb6ff -5.91%, #fda1da 111.58%);
 }
-.project h2 {
+.calculator h2 {
 	font-size: 45px;
 	font-weight: 700;
   text-align: center;
 }
-.project p {
+.calculator p {
   color: #f2ffc6;
   font-size: 18px;
   letter-spacing: 0.8px;
@@ -377,17 +515,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
   width: 56%;
 }
-.project .nav.nav-pills {
+.calculator .nav.nav-pills {
   width: 72%;
   margin: 0 auto;
   border-radius: 50px;
   background-color: rgb(255 255 255 / 10%);
   overflow: hidden;
 }
-.project .nav.nav-pills .nav-item {
+.calculator .nav.nav-pills .nav-item {
   width: 33.33333%;
 }
-.project .nav.nav-pills .nav-link {
+.calculator .nav.nav-pills .nav-link {
   background-color: transparent;
   border-radius: 0;
   padding: 17px 0;
@@ -401,7 +539,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
   z-index: 0;
 }
-.project .nav.nav-pills .nav-link::before {
+.calculator .nav.nav-pills .nav-link::before {
     content: "";
     position: absolute;
     width: 0;
@@ -412,10 +550,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     z-index: -1;
     transition: 0.3s ease-in-out;
 }
-.project .nav.nav-pills .nav-link.active::before {
+.calculator .nav.nav-pills .nav-link.active::before {
     width: 100% !important;
 }
-.project .nav.nav-pills .nav-link.active {
+.calculator .nav.nav-pills .nav-link.active {
     border: 1px solid rgba(255, 255, 255, 1);
 }
 .nav-link#projects-tabs-tab-first {
@@ -429,50 +567,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .nav-link#projects-tabs-tab-third {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
-}
-.proj-imgbx {
-  position: relative;
-  border-radius: 30px;
-  overflow: hidden;
-  margin-bottom: 24px;
-}
-.proj-imgbx::before {
-  content: "";
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  opacity: 0.85;
-  position: absolute;
-  width: 100%;
-  height: 0;
-  transition: 0.4s ease-in-out;
-}
-.proj-imgbx:hover::before {
-  height: 100%;
-}
-.proj-txtx {
-  position: absolute;
-  text-align: center;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.5s ease-in-out;
-  opacity: 0;
-  width: 100%;
-}
-.proj-imgbx:hover .proj-txtx {
-  top: 50%;
-  opacity: 1;
-}
-.proj-txtx h4 {
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 1.1em;
-}
-.proj-txtx span {
-  font-style: italic;
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 0.8px;
 }
 .background-image-right {
   top: 20%;
@@ -506,119 +600,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-color: #ebcfea;
 }
 
-/*********Project CSS BMI ********/
-.project .bmi-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 50%;
-  background-color: #e3b3da;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0px 2px 64px rgba(0, 0, 0, 0.1);
-}
 
-.project .bmi-container input {
-  width: 100%;
-  font-size: 1.2rem;
-  padding: 8px 4px;
-  border-radius: 16px;
-}
 
-.project .bmi-container .btn {
-  display: block;
-  width: 100%;
-  border: 1px solid rgb(122, 106, 169);
-  margin: 8px 0;
-  color: #2e5174;
-  background-color: #f3dcff;
-  font-size: 20px;
-  padding: 10px 0;
-  cursor: pointer;
-  border-radius: 8px;
-}
 
-.project .bmi-container .btn:hover {
-  background-color: #f9f7b2;
-}
-
-.project .bmi-container .btn-outline {
-  background-color: #A7C7E7;
-  color: #2e5174;
-}
-
-.project .bmi-container .center {
-  text-align: center;
-  margin: 24 px 0;
-}
-
-.project .bmi-container .img-container {
-  text-align: center;
-}
-
-.project .bmi-container .img-container img {
-  height: 100px;
-}
-
-/*********Project CSS BMR ********/
-.project .bmr-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 50%;
-  background-color: #e3b3da;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0px 2px 64px rgba(0, 0, 0, 0.1);
-}
-
-.project .bmr-container input {
-  width: 100%;
-  font-size: 1.2rem;
-  padding: 8px 4px;
-  border-radius: 16px;
-}
-
-.project .bmr-container .btn {
-  display: block;
-  width: 100%;
-  border: 1px solid rgb(122, 106, 169);
-  margin: 8px 0;
-  color: #2e5174;
-  background-color: #f3dcff;
-  font-size: 20px;
-  padding: 10px 0;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-.project .bmr-container .btn:hover {
-  background-color: #f9f7b2;
-}
-
-.project .bmr-container .btn-outline {
-  background-color: #A7C7E7;
-  color: #2e5174;
-}
-
-.project .bmr-container .center {
-  text-align: center;
-  margin: 24 px 0;
-}
-
-.project .bmr-container .img-container {
-  text-align: center;
-}
-
-.project .bmr-container .img-container img {
-  height: 100px;
-}
-
-/************ Projects Css ************/
+/************ contact Css ************/
 .contact {
   background: linear-gradient(90.21deg, #e091c0 -5.91%, #f9ffac 111.58%);
   padding: 60px 0 200px 0;

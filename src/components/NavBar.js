@@ -40,11 +40,11 @@ export const NavBar = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
                 <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-                <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Calculator</Nav.Link>
+                <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>Calculator</Nav.Link>
                 {/* calculator types */}
-                <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>BMI</Nav.Link>
-                <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>TDEE</Nav.Link>
-                <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>BMR</Nav.Link>
+                <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>BMI</Nav.Link>
+                <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>TDEE</Nav.Link>
+                <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>BMR</Nav.Link>
 
 
               </Nav>
