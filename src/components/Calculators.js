@@ -13,11 +13,9 @@ import sandwhich from '../assets/img/sandwhich.png';
 
 
 export const Calculators = () => {
-    const [total, setTotal] = useState("");
 
     const [calc, setCalc] = useState("");
     const [result, setResult] = useState("");
-    // const [total, setTotal] = useState("");
 
   const ops = ["+", "-", "*", "/", "."];
 
