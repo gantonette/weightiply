@@ -5,6 +5,7 @@ import { Banner } from "./components/Banner";
 import { Calculators } from "./components/Calculators";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { Route, Link } from "react-router-dom";
 
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
@@ -20,12 +21,14 @@ import { Footer } from "./components/Footer";
 // const auth = firebase.auth();
 // const firestore = firebase.firestore();
 
+
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Banner />
       <Calculators />
+      {/* <Route exact path="/calculators" component={Calculators} /> */}
       <Contact />
       <Footer />
     </div>

@@ -304,6 +304,8 @@ nav.navbar.scrolled {
 nav.navbar a.navbar-brand {
     width: 9%;
 }
+
+.navbar .login,
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 700;
   color: rgb(94, 34, 92) !important;
@@ -312,6 +314,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   font-size: 22px;
   opacity: 1;
 }
+
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
     opacity: 1;

@@ -43,7 +43,7 @@ export const NavBar = () => {
                 <Nav.Link href="#calculators" className={activeLink === 'calculators' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('calculators')}>BMR</Nav.Link>
 
                 <Nav.Link href="#contact" className={activeLink === 'contact' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('contact')}>Contact</Nav.Link>
-                <button className="vvd" onClick={() => console.log('connect')}><span>login/signup</span></button>
+                <button className="login"><span>login/signUp</span></button>
 
               </Nav>
             </Navbar.Collapse>
